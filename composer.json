@@ -1,0 +1,40 @@
+{
+    "name": "magelearn/magento2-module-dynamic-product",
+    "description": "The Dynamic Product module enables you to select specific products directly from the product grid within the system configuration tab. These selections are then saved in the `core_config_data` table, allowing you to access and display them wherever needed.",
+    "type": "magento2-module",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Vijay Rami",
+            "email": "vijaymrami@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "version":"1.0",
+    "require": {
+        "php": ">=8.0.0"
+    },
+    "repositories": [
+	{
+	    "type": "package",
+	    "package": {
+	        "name": "magelearn/magento2-module-dynamic-product",
+	        "version": "1.0",
+	        "source": {
+	            "url": "https://github.com/vijayrami/Magelearn_DynamicProduct.git",
+	            "type": "git",
+	            "reference": "main"
+	        }
+	    }
+	}
+	],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magelearn\\DynamicProduct\\": ""
+        }
+    }
+}

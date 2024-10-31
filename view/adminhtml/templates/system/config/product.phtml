@@ -1,0 +1,38 @@
+<?php
+/** @var \Magelearn\DynamicProduct\Block\Adminhtml\System\Config\Product $block */
+$element = $block->getElement();
+$fieldId = $element->getHtmlId();
+?>
+<div class="admin__field">
+    <div class="admin__field-control">
+        <input type="text" 
+               id="<?= $block->escapeHtmlAttr($fieldId) ?>"
+               name="<?= $block->escapeHtmlAttr($element->getName()) ?>"
+               value="<?= $block->escapeHtmlAttr($element->getValue()) ?>"
+               class="input-text admin__control-text"
+               readonly="readonly" />
+        <button type="button" 
+                class="action-default scalable" 
+                id="<?= $block->escapeHtmlAttr($fieldId) ?>_button">
+            <span><?= $block->escapeHtml(__('Select Product')) ?></span>
+        </button>
+        <div id="<?= $block->escapeHtmlAttr($fieldId) ?>_modal" class="product-chooser-modal" style="display:none;"></div>
+    </div>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/modal',
+        'mage/url',
+        'productChooser'
+    ], function($, modal, urlBuilder, productChooser) {
+        'use strict';
+        
+        productChooser({
+            fieldId: '<?= $block->escapeJs($fieldId) ?>',
+            gridUrl: '<?= $block->escapeJs($block->getProductGridUrl()) ?>',
+            formKey: '<?= $block->escapeJs($block->getFormKey()) ?>'
+        });
+    });
+</script>
